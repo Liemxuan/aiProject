@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZAP F&B Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8B5CF6", // Vibrant Violet (Violet 500)
+              "background-light": "#F8FAFC",
+              "background-dark": "#0F172A", // Slate 900
+              "lavender-btn": "#D0C5FB",
+              "purple-toggle": "#8B5CF6",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+              'btn': '9999px',
+            },
+            animation: {
+              'fade-in-down': 'fadeInDown 0.2s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.2s ease-out forwards',
+            },
+            keyframes: {
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+        plugins: [
+            function({ addComponents, theme }) {
+              addComponents({
+                '.btn': {
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '0.75rem 2rem', // Slightly larger for that punchy look
+                  borderRadius: '9999px',
+                  fontWeight: '700',
+                  fontSize: '1rem',
+                  lineHeight: '1.5',
+                  transitionProperty: 'all',
+                  transitionDuration: '200ms',
+                  borderWidth: '2px',
+                  borderStyle: 'solid',
+                  // Light Mode Defaults
+                  borderColor: '#000',
+                  boxShadow: '4px 4px 0px 0px #000',
+                  backgroundColor: theme('colors.primary'),
+                  color: '#ffffff',
+                  
+                  '&:hover': {
+                    transform: 'translate(-2px, -2px)',
+                    boxShadow: '6px 6px 0px 0px #000',
+                    opacity: '0.9',
+                  },
+                  '&:active': {
+                     transform: 'translate(2px, 2px)',
+                     boxShadow: 'none',
+                     opacity: '1',
+                  },
+                  '&:disabled': {
+                    opacity: '0.5',
+                    filter: 'grayscale(100%)',
+                    cursor: 'not-allowed',
+                  }
+                },
+                // Dark Mode Overrides
+                '.dark .btn': {
+                  borderColor: '#ffffff',
+                  boxShadow: '4px 4px 0px 0px #ffffff',
+                  // We keep the primary background color but ensure border/shadow pop against dark bg
+                  '&:hover': {
+                    boxShadow: '6px 6px 0px 0px #ffffff',
+                  }
+                }
+              })
+            }
+        ]
+      };
+    </script>
+    <style>
+      /* Custom Mesh Gradient Logic */
+      .mesh-gradient {
+        background-color: #8B5CF6;
+        background-image: 
+            radial-gradient(at 0% 0%, hsla(253,80%,80%,1) 0, transparent 50%), 
+            radial-gradient(at 50% 0%, hsla(225,80%,70%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 0%, hsla(300,80%,75%,1) 0, transparent 50%), 
+            radial-gradient(at 0% 50%, hsla(190,90%,70%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 50%, hsla(270,90%,70%,1) 0, transparent 50%), 
+            radial-gradient(at 0% 100%, hsla(240,90%,75%,1) 0, transparent 50%), 
+            radial-gradient(at 50% 100%, hsla(200,90%,70%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 100%, hsla(280,90%,75%,1) 0, transparent 50%);
+        transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+      }
+      .dark .mesh-gradient {
+        background-color: #0f172a;
+        background-image: 
+            radial-gradient(at 0% 0%, hsla(253,50%,15%,1) 0, transparent 50%), 
+            radial-gradient(at 50% 0%, hsla(220,60%,20%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 0%, hsla(280,60%,15%,1) 0, transparent 50%), 
+            radial-gradient(at 0% 50%, hsla(240,100%,25%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 50%, hsla(270,100%,20%,1) 0, transparent 50%), 
+            radial-gradient(at 0% 100%, hsla(230,100%,25%,1) 0, transparent 50%), 
+            radial-gradient(at 50% 100%, hsla(210,100%,20%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 100%, hsla(260,100%,25%,1) 0, transparent 50%);
+      }
+      body {
+        transition: background-image 0.5s ease;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
